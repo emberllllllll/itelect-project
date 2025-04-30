@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+            box-sizing: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         }
+
+         
+         nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 6rem;
+            background: transparent;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+         }
+         .logo-img{
+            height: 40px;
+         }
+         .nav-links{
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+
+         }
+         .nav-links a{
+            text-decoration: none;
+            color: #2d3436;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+
+         }
+         .nav-links a::after{
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background:#4a90e2;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3 ease;
+
+         }
+          .nav-links a:hover::after{
+            width: 100%;
+          }
+          .nav-links a:hover{
+            color:#4a90e2;
+          }
+          .auth-buttons{
+            display: flex;
+            gap: 1rem;
+
+          }
+          .nav-links li{
+            position: relative;
+            padding: 0 1rem;
+
+          }
+          ul {
+            list-style-type: none;
+             margin: 0;
+             padding: 0;
+             overflow: hidden;
+            color: black;
+            margin-left: 1000px;
+            }
+
+        li {
+         float: left;
+            }
+
+            li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 30px;
+            font-size: larger;
+            }
+
+
+        li a:hover {
+        background-color: linear-gradient(135deg, #4a90e2, #5c5ce7);
+            }
+
+
+          .btn{
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transform: all 0.3s ease;
+
+
+          }
+          .sign-in{
+            background: transparent;
+            border: 2px solid #4a90e2;
+
+          }
+          .sign-up{
+            background: linear-gradient(135deg, #4a90e2, #5c5ce7);
+            color: white;
+          }
+          .sign-in:hover{
+            background: #4a90e2;
+            color: white;
+          }
+          .sign-up:hover{
+            transform: translateY(-2px);
+            box-shadow: 0px 5px 15px rgba(106, 137, 238, 0.4);
+          }
+          @media (max-width: 768px) {
+            nav{
+                padding: 1rem,2rem;
+            }
+            .nav-links{
+                display: none;
+            }
+          }
+          body{
+            background-repeat: no-repeat;
+             background-image: url(2.jpg);
+             max-width: 100%;
+             height: 75%;
+             background-size: cover;
+}
+    .coat{
+      text-align: center;
+      margin-top: 350px;
+      font-size: xx-large;
+      font-size: 4rem; 
+      font-style: oblique;
+    }
+    .learn-more{
+      margin-left: 850px;
+      margin-top: 30px;
+      background: linear-gradient(135deg, #4a90e2, #5c5ce7);
+      color: white;
+      justify-content: center;
+      
+    }
+    .learn-more:hover{
+      transform: translateY(-2px);
+      box-shadow: 0px 5px 15px rgba(106, 137, 238, 0.4);
+    }
+   
+           
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <section>
+    <header>
+  <nav>
+    <img src="logo.png" alt="Girl in a jacket" style="width:75px;height:75px;">
+
+  
+  
+        <ul>
+            <li><a href="">Course</a></li>
+            <li><a href="">About us</a></li>
+            <li><a href="">Contact Us</a></li>
+        </ul>
+        <div class = "auth-buttons">
+
+            <button class = "btn sign-in" onclick="showModal('signin')">Sign In</button>
+            <button class = "btn sign-up"onclick="showModal('signup')">Sign Up</button>
+
+        </div>
+        <div class="modal" id="authModal">
+          <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <form class="auth-form active" id="signinForm">
+              <h2 class="form-title">Sign In</h2>
+              <div class="form-group">
+                <input type="email" placeholder="Email" required>
+
+              </div>
+              <div class="form-group">
+                <input type="password" placeholder="Password" required>
+              </div>
+              <button type="submit" class="submit-btn">Sign In</button>
+              <div class="toggle-form">
+                Don't have an account? <span onclick="toggleForm('signup')">Sign Up</span>
+
+              </div>
+            </form>
+            <form class="auth-form" id="SignupForm">
+              <h2 class="form-title">Sign Up</h2>
+              <div class="form-group">
+                <input type="text" placeholder="Full Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <input type="password" placeholder="Password" required>
+              </div>
+              <button type="submit" class="submit-btn">Create Account</button>
+              <div class="toggle-form">
+                Already have an account? <span onclick="toggleForm('signin')">Sign In</span>
+
+
+            </form>
+
+
+
+          </div>
+        </div>
+
+  </nav>
+</header>
+</section>
+
+    <img src="" alt="" class ="bg">
+
+    <div class="coat">Success is the sum of small efforts,<br> repeated day in and day out</div>
+    <button class="btn learn-more">Learn More</button>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</html>
